@@ -1,0 +1,148 @@
+/* Загальні стилі, які застосовуються для всіх екранів */
+body {
+    font-family: 'Lobster', cursive;
+    background: linear-gradient(to right, #3498db, #e74c3c, #f39c12, #2ecc71);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: flex-start;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Додавання тіні при прокрутці */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+#mirosant {
+    font-size: 3em;
+    text-align: center;
+    margin: 5% 0 0;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+    background-clip: text;
+    color: transparent;
+    text-decoration: none;
+    animation: rainbowEffect 6s linear infinite;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+#mirosant:hover {
+    transform: scale(1.1);
+    text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.7);
+}
+
+#channelDescription {
+    text-align: center;
+    margin: 3% 0;
+    font-size: 1.5em;
+    color: transparent; /* Змінено з #ffffff на transparent */
+    background: linear-gradient(to right, #3498db, #e74c3c, #f39c12, #2ecc71);
+    background-clip: text;
+    text-decoration: none;
+    animation: rainbowEffect 6s linear infinite; /* Змінено з fadeInUp на rainbowEffect */
+    transition: transform 0.3s ease;
+}
+
+#youtubeButton {
+    font-size: 1em;
+    margin: 3% 0;
+    padding: 2% 4%;
+    background-color: #ffffff;
+    border: none;
+    color: #3498db;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 25px;
+    -webkit-transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+#youtubeButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #3498db, #e74c3c, #f39c12, #2ecc71);
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: scaleX(0);
+}
+
+#youtubeButton:hover::before {
+    transform: scaleX(1);
+}
+
+#youtubeButton:hover {
+    background: #ffffff;
+    transform: scale(1.05);
+    color: #ffffff;
+}
+
+/* Анімація для кнопки */
+@keyframes rainbowEffect {
+    0% {
+        color: #3498db;
+    }
+    25% {
+        color: #e74c3c;
+    }
+    50% {
+        color: #f39c12;
+    }
+    75% {
+        color: #2ecc71;
+    }
+    100% {
+        color: #3498db;
+    }
+}
+
+/* Медіа-запит для менших екранів */
+@media (max-width: 1200px) {
+    #mirosant {
+        font-size: 2.5em;
+    }
+
+    #channelDescription {
+        font-size: 1.2em;
+    }
+
+    #youtubeButton {
+        font-size: 0.9em;
+        padding: 2% 4%;
+    }
+}
+
+/* Медіа-запит для менших екранів */
+@media (max-width: 768px) {
+    #mirosant {
+        font-size: 2em;
+    }
+
+    #channelDescription {
+        font-size: 1em;
+    }
+
+    #youtubeButton {
+        font-size: 0.8em;
+        padding: 2% 3%;
+    }
+}
